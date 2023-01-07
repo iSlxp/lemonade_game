@@ -87,15 +87,17 @@ while True:
         mydb = mql.connect(
             host = "localhost",
             user = "root",
-            password = "4JVkrk75Jamd",
+            passwd = "4JVkrk75Jamd",
             database = "lemonade_stand"
         )
+        mydb.autocommit=True
         bank_money += total_profit
         cursor = mydb.cursor()
         sql = ("INSERT INTO lemonade (bank_money) VALUES (bank_money)")
         cursor.execute(sql)
         mydb.commit()
         messagebox.showinfo("Information", "Data Pushed to mySQL servers.")
+        print("Done!")
 
 
 
